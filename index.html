@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IC Catalog — Dal catalogo PDF ai dati strutturati</title>
+<meta name="description" content="IC Catalog legge i tuoi Illustrated Parts Catalog, riconosce figure e liste parti, e collega ogni tag numerico alla riga corrispondente — pronto per il tuo database.">
+<style>
+  :root {
+    --navy: #1E2D3D;
+    --slate: #647487;
+    --orange: #FF6A00;
+    --light: #F2F4F7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Exo 2', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--navy);
+    background-color: #ffffff;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background-color: var(--navy);
+    padding: 20px 0;
+  }
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: var(--orange); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(180deg, var(--navy) 0%, #141d28 100%);
+    color: #ffffff;
+    padding: 90px 0 100px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.25;
+    max-width: 760px;
+    margin: 0 auto 20px;
+  }
+  .hero p {
+    font-size: 18px;
+    color: #cfd6e4;
+    max-width: 620px;
+    margin: 0 auto 36px;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--orange);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+  .btn:hover { background-color: #cc5500; }
+
+  /* Sezioni generiche */
+  section {
+    padding: 72px 0;
+  }
+  section.alt {
+    background-color: var(--light);
+  }
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .lead {
+    text-align: center;
+    color: var(--slate);
+    font-size: 17px;
+    max-width: 620px;
+    margin: 0 auto 48px;
+  }
+
+  /* Sezione problema */
+  .problema {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .problema p {
+    font-size: 19px;
+    color: var(--navy);
+  }
+  .problema p + p {
+    margin-top: 12px;
+    color: var(--slate);
+  }
+
+  /* 3 colonne soluzione */
+  .colonne {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 8px;
+  }
+  .colonna {
+    background: #ffffff;
+    border: 1px solid #e2e6ec;
+    border-radius: 10px;
+    padding: 28px 24px;
+  }
+  .colonna .numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--orange);
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-bottom: 16px;
+  }
+  .colonna h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .colonna p {
+    color: var(--slate);
+    font-size: 15px;
+  }
+
+  @media (max-width: 720px) {
+    .colonne { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+  }
+
+  /* Prova sociale */
+  .prova-sociale {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  /* CTA finale */
+  .cta-finale {
+    background-color: var(--navy);
+    color: #ffffff;
+    text-align: center;
+  }
+  .cta-finale h2 { color: #ffffff; }
+  .cta-finale .nota {
+    color: #a9b4c4;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  footer {
+    padding: 32px 0;
+    text-align: center;
+    color: var(--slate);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">ic<span>catalog</span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Dal catalogo PDF ai dati strutturati.<br>Senza trascrizione manuale.</h1>
+    <p>IC Catalog legge i tuoi Illustrated Parts Catalog, riconosce figure e liste parti, e collega ogni tag numerico alla riga corrispondente — pronto per il tuo database.</p>
+    <a href="#contatti" class="btn">Richiedi una demo</a>
+  </div>
+</section>
+
+<section>
+  <div class="container problema">
+    <h2>Stai ancora trascrivendo part number a mano?</h2>
+    <p>Da un PDF di centinaia di pagine, riga per riga.</p>
+    <p>Ogni errore di trascrizione, in un catalogo tecnico, non è un fastidio — è un rischio.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2>Come funziona</h2>
+    <p class="lead">Tre passaggi, senza intervento manuale sui dati fino alla revisione finale.</p>
+    <div class="colonne">
+      <div class="colonna">
+        <div class="numero">1</div>
+        <h3>OCR + comprensione del contenuto</h3>
+        <p>Legge testo e tabelle, capisce la terminologia standard di un Illustrated Parts Catalog: Usage Code, Model Apply Code, indentatura degli assiemi.</p>
+      </div>
+      <div class="colonna">
+        <div class="numero">2</div>
+        <h3>Collegamento visivo tag ↔ tabella</h3>
+        <p>Ogni numero sul disegno si collega automaticamente alla riga corrispondente nella tabella — non solo testo estratto alla cieca.</p>
+      </div>
+      <div class="colonna">
+        <div class="numero">3</div>
+        <h3>Validazione che blocca gli errori</h3>
+        <p>Se una combinazione di part number viola le regole del catalogo, il sistema non te la lascia passare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container prova-sociale">
+    <!-- Da sostituire con una citazione reale quando disponibile -->
+    <p>La prima testimonianza arriva presto — nel frattempo, richiedi una demo sul tuo catalogo.</p>
+  </div>
+</section>
+
+<section class="cta-finale" id="contatti">
+  <div class="container">
+    <h2>Basta trascrizione manuale.</h2>
+    <a href="mailto:info@ic-catalog.it" class="btn">Richiedi una demo</a>
+    <p class="nota">Nessun impegno. Ti mostro come funziona sul tuo catalogo.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; <span id="year"></span> IC Catalog — ic-catalog.it
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
