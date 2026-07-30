@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IC Catalog — Dal catalogo PDF ai dati strutturati</title>
 <meta name="description" content="IC Catalog legge i tuoi Illustrated Parts Catalog, riconosce figure e liste parti, e collega ogni tag numerico alla riga corrispondente — pronto per il tuo database.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1E2D3D;
@@ -40,13 +44,24 @@
     align-items: center;
     justify-content: space-between;
   }
-  .logo {
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-brand img {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: block;
+  }
+  .header-brand .wordmark {
     color: #ffffff;
     font-weight: bold;
     font-size: 20px;
     letter-spacing: 0.5px;
   }
-  .logo span { color: var(--orange); }
+  .header-brand .wordmark span { color: var(--orange); }
 
   /* Hero */
   .hero {
@@ -189,7 +204,10 @@
 
 <header>
   <div class="container">
-    <div class="logo">ic<span>catalog</span></div>
+    <div class="header-brand">
+      <img src="logo.png" alt="IC Catalog">
+      <span class="wordmark">ic<span>catalog</span></span>
+    </div>
   </div>
 </header>
 
