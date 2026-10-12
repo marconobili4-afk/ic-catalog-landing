@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IC Catalog — Dal catalogo PDF ai dati strutturati</title>
-<meta name="description" content="IC Catalog legge i tuoi Illustrated Parts Catalog, riconosce figure e liste parti, e collega ogni tag numerico alla riga corrispondente — pronto per il tuo database.">
+<title>IC Catalog — Dal catalogo PDF alla tracciabilità di manutenzione</title>
+<meta name="description" content="IC Catalog legge i tuoi Illustrated Parts Catalog e Component Maintenance Manual, riconosce figure, liste parti, Repair e procedure passo-passo — e li pubblica su inter-catalog, la piattaforma che traccia l'intero ciclo di manutenzione.">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -170,20 +170,168 @@
     .hero h1 { font-size: 30px; }
   }
 
-  /* Demo */
-  .demo-shot {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 1px solid #e2e6ec;
-    box-shadow: 0 12px 32px rgba(30, 45, 61, 0.12);
-  }
+  /* Demo interattiva: disegno con tag cliccabili + tabella lista parti */
   .demo-caption {
     text-align: center;
     color: var(--slate);
     font-size: 13px;
     margin-top: 14px;
+  }
+  .demo-hint {
+    text-align: center;
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .interactive-demo {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .demo-figure-wrap {
+    position: relative;
+    flex: 1 1 55%;
+    min-width: 0;
+    border: 1px solid #e2e6ec;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(30, 45, 61, 0.12);
+    background: #ffffff;
+  }
+  .demo-figure-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .tag-marker {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.15s ease;
+  }
+  .tag-marker:hover {
+    border-color: rgba(255, 106, 0, 0.5);
+    background: rgba(255, 106, 0, 0.08);
+  }
+  .tag-marker.active {
+    border-color: var(--orange);
+    background: rgba(255, 106, 0, 0.18);
+    box-shadow: 0 0 0 5px rgba(255, 106, 0, 0.18);
+  }
+  .demo-table-wrap {
+    flex: 1 1 45%;
+    min-width: 0;
+    border: 1px solid #e2e6ec;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .demo-table thead th {
+    background: var(--navy);
+    color: #ffffff;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .demo-table tbody tr {
+    cursor: pointer;
+    border-top: 1px solid #e2e6ec;
+    transition: background-color 0.15s ease;
+  }
+  .demo-table tbody tr:hover {
+    background-color: #f7f9fb;
+  }
+  .demo-table tbody tr.active {
+    background-color: #d7f2dd;
+  }
+  .demo-table td {
+    padding: 9px 12px;
+    color: var(--navy);
+  }
+  .demo-table td.item-cell {
+    font-weight: 700;
+    color: var(--orange);
+    width: 36px;
+  }
+  .demo-table td.indent-1 {
+    padding-left: 24px;
+    color: var(--slate);
+  }
+
+  @media (max-width: 760px) {
+    .interactive-demo { flex-direction: column; }
+    .demo-figure-wrap, .demo-table-wrap { flex: 1 1 auto; width: 100%; }
+  }
+
+  /* Oltre la lista parti: Repair/materiali/procedure */
+  .repair-note {
+    background: #ffffff;
+    border: 1px solid #e2e6ec;
+    border-left: 4px solid var(--orange);
+    border-radius: 8px;
+    padding: 20px 24px;
+    max-width: 760px;
+    margin: 8px auto 0;
+    color: var(--slate);
+    font-size: 15px;
+  }
+  .repair-note strong { color: var(--navy); }
+
+  /* Tracciabilità / inter-catalog */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .feature-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .feature h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .feature p {
+    color: var(--slate);
+    font-size: 14px;
+  }
+  .tagline {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 48px;
+  }
+  .tagline span { color: var(--orange); }
+
+  @media (max-width: 720px) {
+    .feature-grid { grid-template-columns: 1fr; }
   }
 
   /* Prova sociale */
@@ -270,9 +418,102 @@
 <section>
   <div class="container">
     <h2>Così, in pratica</h2>
-    <p class="lead">Ogni tag sul disegno è già collegato alla riga corrispondente nella tabella — pronto per la verifica, non da trascrivere.</p>
-    <img src="demo-screenshot.png" alt="Schermata di IC Catalog: figura tecnica con tag numerati collegati automaticamente alla lista parti" class="demo-shot">
+    <p class="lead">Ogni tag sul disegno è già collegato alla riga corrispondente nella tabella — provalo tu stesso.</p>
+    <p class="demo-hint">👉 Clicca un numero sul disegno, o una riga della tabella</p>
+    <div class="interactive-demo">
+      <div class="demo-figure-wrap">
+        <img src="figure-demo.png" alt="Disegno tecnico con tag numerati di un componente di esempio">
+        <button class="tag-marker" data-item="10" style="left:18.01%; top:36.36%" aria-label="Item 10"></button>
+        <button class="tag-marker" data-item="20" style="left:42.47%; top:29.76%" aria-label="Item 20"></button>
+        <button class="tag-marker" data-item="30" style="left:68.62%; top:33.06%" aria-label="Item 30"></button>
+        <button class="tag-marker" data-item="40" style="left:19.58%; top:26.45%" aria-label="Item 40"></button>
+        <button class="tag-marker" data-item="50" style="left:24.51%; top:69.40%" aria-label="Item 50"></button>
+        <button class="tag-marker" data-item="60" style="left:24.50%; top:76.00%" aria-label="Item 60"></button>
+        <button class="tag-marker" data-item="70" style="left:68.63%; top:82.61%" aria-label="Item 70"></button>
+        <button class="tag-marker" data-item="80" style="left:17.97%; top:85.91%" aria-label="Item 80"></button>
+      </div>
+      <div class="demo-table-wrap">
+        <table class="demo-table">
+          <thead>
+            <tr><th>Item</th><th>P/N</th><th>Descrizione</th><th>Qty</th></tr>
+          </thead>
+          <tbody>
+            <tr data-item="10"><td class="item-cell">10</td><td>MAC-29110-10</td><td>ACTUATOR BODY</td><td>1</td></tr>
+            <tr data-item="20"><td class="item-cell">20</td><td>MAC-29110-20</td><td>PISTON ASSY</td><td>1</td></tr>
+            <tr data-item="30"><td class="item-cell">30</td><td>MAC-29110-30</td><td class="indent-1">ROD END</td><td>1</td></tr>
+            <tr data-item="40"><td class="item-cell">40</td><td>BACS30BB4</td><td class="indent-1">BOLT</td><td>4</td></tr>
+            <tr data-item="50"><td class="item-cell">50</td><td>MAC-29110-50</td><td>RETAINING RING</td><td>1</td></tr>
+            <tr data-item="60"><td class="item-cell">60</td><td>MAC-29110-60</td><td>SEAL PACK</td><td>1</td></tr>
+            <tr data-item="70"><td class="item-cell">70</td><td>MAC-29110-70</td><td>POSITION SENSOR</td><td>1</td></tr>
+            <tr data-item="80"><td class="item-cell">80</td><td>NAS1149F</td><td class="indent-1">WASHER</td><td>4</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <p class="demo-caption">Dati di esempio (componente e costruttore fittizi, nessun dato reale di cliente) — su un catalogo vero il processo è identico.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2>Non si ferma alla lista parti</h2>
+    <p class="lead">Lo stesso motore riconosce anche le sezioni Repair del Component Maintenance Manual — con tutto quello che serve per eseguirle davvero, non solo per consultarle.</p>
+    <div class="colonne">
+      <div class="colonna">
+        <div class="numero">📦</div>
+        <h3>Materiali di consumo, già pronti all'ordine</h3>
+        <p>Per ogni Repair, la lista dei materiali di consumo viene estratta e collegata ai fornitori — niente più caccia al part number nel PDF a componente già smontato.</p>
+      </div>
+      <div class="colonna">
+        <div class="numero">📐</div>
+        <h3>Procedure scomposte passo-passo</h3>
+        <p>Ogni Repair diventa una sequenza di passi numerati, con i riferimenti agli item del disegno già collegati — il tecnico segue, non interpreta.</p>
+      </div>
+      <div class="colonna">
+        <div class="numero">🔧</div>
+        <h3>Si adatta al costruttore, non il contrario</h3>
+        <p>Goodrich, Airbus S1000D e altri formati — ogni costruttore scrive le sue Repair in modo diverso, il motore riconosce la struttura giusta per ciascuno.</p>
+      </div>
+    </div>
+    <p class="repair-note"><strong>Esempio concreto:</strong> un tecnico apre la scheda del componente, trova la procedura di Repair già scomposta passo-passo con i materiali di consumo necessari — e se un ricambio manca a magazzino, lo ordina dalla stessa schermata, senza mai tornare al PDF originale.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Dalla catalogazione alla tracciabilità</h2>
+    <p class="lead">Tutto confluisce in <strong>inter-catalog</strong>: la piattaforma online dove la tua officina traccia l'intero ciclo di manutenzione di un componente — non solo cosa c'è scritto nel manuale, ma cosa è stato davvero fatto.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-icon">📋</div>
+        <div>
+          <h3>Work Order sempre tracciati</h3>
+          <p>Aperti, chiusi, riaperti — sempre con chi e perché. Mai un passaggio perso.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✍️</div>
+        <div>
+          <h3>Firma digitale ad ogni procedura</h3>
+          <p>Codice di conferma via email prima di chiudere un intervento — una procedura eseguita, un responsabile identificato.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🧾</div>
+        <div>
+          <h3>Report pronto per l'audit</h3>
+          <p>Procedure firmate, materiali sostituiti, tempi di esecuzione — tutto in un unico documento, quando serve dimostrarlo.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛒</div>
+        <div>
+          <h3>Dal ricambio mancante all'ordine</h3>
+          <p>Part number a stock zero? Link diretto ai fornitori, dalla stessa schermata dell'ufficio acquisti.</p>
+        </div>
+      </div>
+    </div>
+    <p class="tagline">IC Catalog prepara i dati. <span>inter-catalog</span> li mette al lavoro in officina.</p>
   </div>
 </section>
 
@@ -299,6 +540,31 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Demo interattiva "Così, in pratica": click su un tag del disegno o su
+  // una riga della tabella evidenzia la coppia corrispondente - replica la
+  // stessa interazione reale dell'app (clicca il tag sul disegno -> si
+  // evidenzia la riga, e viceversa).
+  (function () {
+    var markers = document.querySelectorAll('.tag-marker');
+    var rows = document.querySelectorAll('.demo-table tbody tr');
+
+    function setActive(itemNum) {
+      markers.forEach(function (el) {
+        el.classList.toggle('active', el.dataset.item === itemNum);
+      });
+      rows.forEach(function (el) {
+        el.classList.toggle('active', el.dataset.item === itemNum);
+      });
+    }
+
+    markers.forEach(function (el) {
+      el.addEventListener('click', function () { setActive(el.dataset.item); });
+    });
+    rows.forEach(function (el) {
+      el.addEventListener('click', function () { setActive(el.dataset.item); });
+    });
+  })();
 </script>
 
 </body>
