@@ -117,6 +117,34 @@
   }
   .btn:hover { background-color: #cc5500; }
 
+  .btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--navy);
+    font-weight: bold;
+    font-size: 15px;
+    padding: 12px 28px;
+    border: 2px solid var(--navy);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-outline:hover { background-color: var(--navy); color: #ffffff; }
+
+  .demo-live-wrap { text-align: center; margin-top: 28px; }
+  .demo-live-hint {
+    text-align: center;
+    color: var(--slate);
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  .demo-live-hint code {
+    background-color: var(--light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
   /* Sezioni generiche */
   section {
     padding: 72px 0;
@@ -539,6 +567,10 @@
       </div>
     </div>
     <p class="tagline">IC Catalog prepara i dati. <span>inter-catalog</span> li mette al lavoro in officina.</p>
+    <p class="demo-live-wrap">
+      <a href="https://inter-catalog-production.up.railway.app/dev/demo/login" target="_blank" rel="noopener" class="btn-outline">Prova inter-catalog in diretta →</a>
+    </p>
+    <p class="demo-live-hint">Login demo già pronto — <code>demo@ic-catalog.it</code> / <code>MeridianDemo2026!</code> (stesso catalogo di esempio qui sopra)</p>
   </div>
 </section>
 
